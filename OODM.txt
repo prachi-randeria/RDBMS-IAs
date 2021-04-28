@@ -1,0 +1,54 @@
+Class Patient{
+    Pid: String
+    Pname: String
+    treatment: String
+}
+
+Class Department{
+    Deptid: int 
+    Deptname: string
+}
+
+Class Employee{
+    Empid: String
+    salary: float
+    Empname: String
+}
+
+Class Medical ISA Employee{
+    degree: String
+    specialisation: String
+    supervise: Patient
+}
+
+Class Other ISA Employee{
+    qualification: String
+    works_in: Department
+}
+
+
+
+
+
+Object p1 belongs_to Patient{
+    Pid: WE12568812
+    Pname: Priya Shah
+    treatment: Bypass
+}
+
+Object d1 belongs_to Department{
+    Deptid: 2
+    Detname: Admin
+}
+
+Object s1 belongs_to Other{
+    qualification: Mtech
+    works_in: d1
+}
+
+Object m1 belongs_to Medical{
+    degree: M.S.
+    specialisation: Cardiology
+    supervise: p1
+}
+

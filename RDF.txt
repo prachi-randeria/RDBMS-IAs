@@ -1,0 +1,114 @@
+L is a set of identifiers, including:
+    C={Patient, Medical, Department, Staff, Other}
+    P={Pid, Pname, treatment, Deptid, Deptname, Empid, salary, 
+        Empname, degree, specialisation, supervise, qualification, works_in}
+    D={xsd:string, xsd:integer, xsd:float}
+    I={s1, p1, d1, m1}
+
+S is a set of triples defined on L, including:
+<rdfs:Class rdf:ID = ‘‘Patient’’/>                      //rule 3
+<rdf:Property rdf:ID = ‘‘Pid’’ >                        //rule 4
+    <rdfs:domain rdf:resource= ‘‘#Patient’’/>
+    <rdfs:range rdf:resource = ‘‘&xsd:string’’/>
+</rdf:Property>
+<rdf:Property rdf:ID = ‘‘Pname’’ >
+    <rdfs:domain rdf:resource= ‘‘#Patient’’/>
+    <rdfs:range rdf:resource = ‘‘&xsd:string’’/>
+</rdf:Property>
+<rdf:Property rdf:ID = ‘‘treatment’’ >
+    <rdfs:domain rdf:resource= ‘‘#Patient’’/>
+    <rdfs:range rdf:resource = ‘‘&xsd:string’’/>
+</rdf:Property>
+
+
+<rdfs:Class rdf:ID = ‘‘Department’’/>
+<rdf:Property rdf:ID = ‘‘Deptid’’ >
+    <rdfs:domain rdf:resource= ‘‘#Department’’/>
+    <rdfs:range rdf:resource = ‘‘&xsd:integer’’/>
+</rdf:Property>
+<rdf:Property rdf:ID = ‘‘Deptname’’ >
+    <rdfs:domain rdf:resource= ‘‘#Department’’/>
+    <rdfs:range rdf:resource = ‘‘&xsd:string’’/>
+</rdf:Property>
+
+
+<rdfs:Class rdf:ID = ‘‘Employee’’/>
+<rdf:Property rdf:ID = ‘‘Empid’’ >
+    <rdfs:domain rdf:resource= ‘‘#Employee’’/>
+    <rdfs:range rdf:resource = ‘‘&xsd:string’’/>
+</rdf:Property>
+<rdf:Property rdf:ID = ‘‘salary’’ >
+    <rdfs:domain rdf:resource= ‘‘#Employee’’/>
+    <rdfs:range rdf:resource = ‘‘&xsd:float’’/>
+</rdf:Property>
+<rdf:Property rdf:ID = ‘‘Empname’’ >
+    <rdfs:domain rdf:resource= ‘‘#Employee’’/>
+    <rdfs:range rdf:resource = ‘‘&xsd:string’’/>
+</rdf:Property>
+
+
+<rdfs:Class rdf:ID = ‘‘Medical’’>
+    <rdfs:subClassOf rdf:resource=‘‘#Employee’’/>           //rule 5
+</rdfs:Class>
+<rdf:Property rdf:ID = ‘‘degree’’ >
+    <rdfs:domain rdf:resource= ‘‘#Medical’’/>
+    <rdfs:range rdf:resource = ‘‘&xsd:string’’/>
+</rdf:Property>
+<rdf:Property rdf:ID = ‘‘specialisation’’ >
+    <rdfs:domain rdf:resource= ‘‘#Medical’’/>
+    <rdfs:range rdf:resource = ‘‘&xsd:string’’/>
+</rdf:Property>
+<rdf:Property rdf:ID = ‘‘supervise’’ >
+    <rdfs:domain rdf:resource= ‘‘#Medical’’/>
+    <rdfs:range rdf:resource = ‘‘#Patient’’/>
+</rdf:Property>
+
+
+<rdfs:Class rdf:ID = ‘‘Other’’>
+    <rdfs:subClassOf rdf:resource=‘‘#Employee’’/>
+</rdfs:Class>
+<rdf:Property rdf:ID = ‘‘qualification’’ >
+    <rdfs:domain rdf:resource= ‘‘#Other’’/>
+    <rdfs:range rdf:resource = ‘‘&xsd:string’’/>
+</rdf:Property>
+<rdf:Property rdf:ID = ‘‘work_in’’ >
+    <rdfs:domain rdf:resource= ‘‘#Other’’/>
+    <rdfs:range rdf:resource = ‘‘#Department’’/>
+</rdf:Property>
+
+
+
+
+
+
+
+<rdf:Description rdf:ID = ‘‘p1’’>                              //rule 7
+    <rdf:type rdf:resource = ‘‘#Patient’’/>
+    <Pid rdf:datatype=‘‘&xsd:string’’>WE12568812</Pid>
+    <Pname rdf:datatype=‘‘&xsd:string’’>Priya Shah</Pname>
+    <treatment rdf:datatype=‘‘&xsd:string’’>Bypass</treatment>  
+</rdf:Description>
+
+<rdf:Description rdf:ID = ‘‘d1’’>
+    <rdf:type rdf:resource = ‘‘#Department’’/>
+    <Deptid rdf:datatype=‘‘&xsd:integer’’>2</Deptid>
+    <Deptname rdf:datatype=‘‘&xsd:string’’>Admin</Deptname>
+</rdf:Description>
+
+<rdf:Description rdf:ID = ‘‘s1’’>
+    <rdf:type rdf:resource = ‘‘#Other’’/>
+    <qualification rdf:datatype=‘‘&xsd:string’’>Mtech</qualification>
+    <works_in rdf:resource = ‘‘#d1’’/>
+</rdf:Description>
+
+
+<rdf:Description rdf:ID = ‘‘m1’’>
+    <rdf:type rdf:resource = ‘‘#Medical’’/>
+    <degree rdf:datatype=‘‘&xsd:string’’>M.S.</degree>
+    <specialisation rdf:datatype=‘‘&xsd:string’’>cardiology</specialisation>
+    <supervise rdf:resource = ‘‘#p1’’/>
+</rdf:Description>
+
+
+
+
