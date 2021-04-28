@@ -9,7 +9,7 @@ Batch: B3
 
 Course: COMPS
 
-Faculty Name: Prpf. Pradnya Bhangale
+Faculty Name: Prof. Pradnya Bhangale
 
 College Name: K J Somaiya College of Engineering
 # File Descriptions
